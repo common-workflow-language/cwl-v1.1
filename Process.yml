@@ -279,7 +279,10 @@ $graph:
         If `loadContents` of `inputBinding` or `outputBinding` is true and
         `location` is valid, the implementation must read up to the first 64
         KiB of text from the file and place it in the "contents" field.
-
+    - name: metadata
+      type: Any?
+      doc: |
+        Metadata further describing the file.
 
 - name: Directory
   type: record

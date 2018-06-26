@@ -1,0 +1,5 @@
+input:
+  class: File
+  path: hello.txt
+  metadata:
+    hello: world
