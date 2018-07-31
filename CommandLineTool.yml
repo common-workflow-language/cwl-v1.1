@@ -244,13 +244,15 @@ $graph:
         - string
         - Expression
       doc: |
-        Evaluate an expression to generate the output value.  If `glob` was
-        specified, the value of `self` must be an array containing file objects
-        that were matched.  If no files were matched, `self` must be a zero
-        length array; if a single file was matched, the value of `self` is an
-        array of a single element.  Additionally, if `loadContents` is `true`,
-        the File objects must include up to the first 64 KiB of file contents
-        in the `contents` field.
+        Evaluate an expression to generate the output value.  If
+        `glob` was specified, the value of `self` must be an array
+        containing file objects that were matched.  If no files were
+        matched, `self` must be a zero length array; if a single file
+        was matched, the value of `self` is an array of a single
+        element.  Additionally, if `loadContents` is `true`, the File
+        objects must include up to the first 1
+        [mebibyte](https://en.wikipedia.org/wiki/Mebibyte) (2**20) of
+        file contents (UTF-8 text) in the `contents` field.
 
 - name: CommandLineBindable
   type: record
@@ -969,27 +971,27 @@ $graph:
 
     - name: ramMin
       type: ["null", long, string, Expression]
-      doc: Minimum reserved RAM in mebibytes (2**20)
+      doc: Minimum reserved RAM in [mebibytes](https://en.wikipedia.org/wiki/Mebibyte) (2**20)
 
     - name: ramMax
       type: ["null", long, string, Expression]
-      doc: Maximum reserved RAM in mebibytes (2**20)
+      doc: Maximum reserved RAM in [mebibytes](https://en.wikipedia.org/wiki/Mebibyte) (2**20)
 
     - name: tmpdirMin
       type: ["null", long, string, Expression]
-      doc: Minimum reserved filesystem based storage for the designated temporary directory, in mebibytes (2**20)
+      doc: Minimum reserved filesystem based storage for the designated temporary directory, in [mebibytes](https://en.wikipedia.org/wiki/Mebibyte) (2**20)
 
     - name: tmpdirMax
       type: ["null", long, string, Expression]
-      doc: Maximum reserved filesystem based storage for the designated temporary directory, in mebibytes (2**20)
+      doc: Maximum reserved filesystem based storage for the designated temporary directory, in [mebibytes](https://en.wikipedia.org/wiki/Mebibyte) (2**20)
 
     - name: outdirMin
       type: ["null", long, string, Expression]
-      doc: Minimum reserved filesystem based storage for the designated output directory, in mebibytes (2**20)
+      doc: Minimum reserved filesystem based storage for the designated output directory, in [mebibytes](https://en.wikipedia.org/wiki/Mebibyte) (2**20)
 
     - name: outdirMax
       type: ["null", long, string, Expression]
-      doc: Maximum reserved filesystem based storage for the designated output directory, in mebibytes (2**20)
+      doc: Maximum reserved filesystem based storage for the designated output directory, in [mebibytes](https://en.wikipedia.org/wiki/Mebibyte) (2**20)
 
 
 - type: record

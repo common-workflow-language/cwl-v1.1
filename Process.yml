@@ -76,7 +76,7 @@ $graph:
     literal".  File literals do not correspond to external resources, but are
     created on disk with `contents` with when needed for a executing a tool.
     Where appropriate, expressions can return file literals to define new files
-    on a runtime.  The maximum size of `contents` is 64 kilobytes.
+    on a runtime.  The maximum size of `contents` is 1 [mebibyte](https://en.wikipedia.org/wiki/Mebibyte) (2**20).
 
     The `basename` property defines the filename on disk where the file is
     staged.  This may differ from the resource name.  If not provided,
@@ -269,7 +269,9 @@ $graph:
     - name: contents
       type: string?
       doc: |
-        File contents literal.  Maximum of 64 KiB.
+        File contents literal.  Maximum of 1
+        [mebibyte](https://en.wikipedia.org/wiki/Mebibyte) (2**20) of
+        UTF-8 text.
 
         If neither `location` nor `path` is provided, `contents` must be
         non-null.  The implementation must assign a unique identifier for the
@@ -446,8 +448,10 @@ $graph:
       doc: |
         Only valid when `type: File` or is an array of `items: File`.
 
-        Read up to the first 64 KiB of text from the file and place it in the
-        "contents" field of the file object for use by expressions.
+        Read up to the first 1
+        [mebibyte](https://en.wikipedia.org/wiki/Mebibyte) (2**20) of
+        UTF-8 text from the file and place it in the "contents" field
+        of the file object for use by expressions.
 
 
 - name: FieldBase
@@ -585,8 +589,10 @@ $graph:
 
         Only valid when `type: File` or is an array of `items: File`.
 
-        Read up to the first 64 KiB of text from the file and place it in the
-        "contents" field of the file object for use by expressions.
+        Read up to the first 1
+        [mebibyte](https://en.wikipedia.org/wiki/Mebibyte) (2**20) of
+        UTF-8 text from the file and place it in the "contents" field of the
+        file object for use by expressions.
 
 
 - name: InputSchema
