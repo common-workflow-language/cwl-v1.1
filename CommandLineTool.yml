@@ -68,6 +68,8 @@ $graph:
         * Clarify semantics of `shellQuote`
         * Expressions are now allowed to evaluate to `null` or `Dirent` in
           [InitialWorkDirRequirement.listing](#InitialWorkDirRequirement).
+        * Maximum size of `loadContents` is now 1 MiB.  Also clarify
+          that it must be UTF-8 text.
 
       See also the [CWL Workflow Description, v1.1.0-dev1 changelog](Workflow.html#Changelog).
 

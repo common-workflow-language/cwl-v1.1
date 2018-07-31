@@ -65,7 +65,8 @@ $graph:
           `WorkflowInputParameter.loadContents` instead.
         * The presence of `OutputRecordField.outputBinding` in v1.0 was due to
           a technical error and as it makes no semantic sense it was removed.
-
+        * Maximum size of `loadContents` is now 1 MiB.  Also clarify
+          that it must be UTF-8 text.
 
       See also the [CWL Command Line Tool Description, v1.1.0-dev1 changelog](CommandLineTool.html#Changelog).
 
