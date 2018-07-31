@@ -65,6 +65,7 @@ $graph:
           `WorkflowInputParameter.loadContents` instead.
         * The presence of `OutputRecordField.outputBinding` in v1.0 was due to
           a technical error and as it makes no semantic sense it was removed.
+        * `WorkflowStepInput` now has a `label` field
         * Maximum size of `loadContents` is now 1 MiB.  Also clarify
           that it must be UTF-8 text.
 
@@ -253,7 +254,7 @@ $graph:
 
 - type: record
   name: WorkflowStepInput
-  extends: [Identified, Sink, LoadContents]
+  extends: [Identified, Sink, LoadContents, Labeled]
   docParent: "#WorkflowStep"
   doc: |
     The input of a workflow step connects an upstream parameter (from the
