@@ -223,6 +223,7 @@ $graph:
       - loadContents
       - outputEval
       - secondaryFiles
+      - addMetadata
   fields:
     - name: glob
       type:
@@ -258,7 +259,9 @@ $graph:
         - Expression
       doc: |
         Evaluate an expression to generate the output file metadata. Expression
-        should return a key-value map.
+        should return a key-value map. Returned map should be set as the 
+        `metadata` property of the output file or files. The same map
+        should be set as the `metadata` property of all secondary files. 
 
 - name: CommandLineBindable
   type: record
