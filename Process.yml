@@ -282,7 +282,12 @@ $graph:
     - name: metadata
       type: Any?
       doc: |
-        Metadata further describing the file.
+       Metadata should be a key-value map further describing a `File`.
+       Metadata can be propagated from inputs to outputs of a tool using
+       `addMetadata` option in the `CommandOutputBinding`. It is up to the
+       implementation to make use of the `metadata` property of final outputs
+       of the execution.
+
 
 - name: Directory
   type: record
