@@ -9,8 +9,10 @@ baseCommand:
   - has
   - metadata
 inputs:
-  - id: input
-    type: File?
+  - id: input_file
+    type: File
+  - id: input_list
+    type: File[]
 outputs:
   - id: out
     type: File
@@ -18,9 +20,18 @@ outputs:
       - $(self.basename)
     outputBinding:
       glob: out
-      addMetadata: $(inputs.input.metadata)
+      addMetadata: $(inputs.input_file.metadata)
+  - id: out_intersected
+    type: File[]
+    secondaryFiles:
+      - $(self.basename)
+    outputBinding:
+      glob: out
+      addMetadata: 
+      - input_file
+      - input_list
 requirements:
   - class: DockerRequirement
-    dockerPull: 'ubuntu:16.04'
+    dockerPull: 'debian:stretch-slim'
   - class: InlineJavascriptRequirement
 stdout: out
