@@ -1,0 +1,12 @@
+input_file:
+  class: File
+  path: hello.txt
+  metadata:
+    hello: world
+    foo: 1
+input_list:
+  - class: File
+    path: whale.txt
+    metadata:
+      hello: world
+      foo: 2

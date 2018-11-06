@@ -1768,3 +1768,61 @@
   tool: tests/networkaccess2.cwl
   doc: Test networkaccess is disabled by default
   tags: [ networkaccess ]
+
+
+
+- job: tests/inherit-metadata-job.yml
+  output: {
+      "out": {
+          "basename": "out",
+          "checksum": "sha1$4a7edca069beb3fbdcc3ce9d8626025d262c046a",
+          "class": "File",
+          "location": "out",
+          "metadata": {
+              "foo": 1,
+              "hello": "world"
+          },
+          "secondaryFiles": [
+              {
+                  "basename": "out",
+                  "checksum": "sha1$4a7edca069beb3fbdcc3ce9d8626025d262c046a",
+                  "class": "File",
+                  "location": "out",
+                  "metadata": {
+                      "foo": 1,
+                      "hello": "world"
+                  },
+                  "size": 23
+              }
+          ],
+          "size": 23
+      },
+      "out_intersected": [
+          {
+              "basename": "out",
+              "checksum": "sha1$4a7edca069beb3fbdcc3ce9d8626025d262c046a",
+              "class": "File",
+              "location": "out",
+              "metadata": {
+                  "hello": "world"
+              },
+              "secondaryFiles": [
+                  {
+                      "basename": "out",
+                      "checksum": "sha1$4a7edca069beb3fbdcc3ce9d8626025d262c046a",
+                      "class": "File",
+                      "location": "out",
+                      "metadata": {
+                          "hello": "world"
+                      },
+                      "size": 23
+                  }
+              ],
+              "size": 23
+          }
+      ]
+  }
+  tool: tests/inherit-metadata.cwl
+  doc: Test addmetadata via expression or input id
+  tags: [ addmetadata ]
+
