@@ -423,6 +423,20 @@ $graph:
       jsonldPredicate: "rdfs:label"
       doc: "A short, human-readable label of this object."
 
+- name: Defaultable
+  type: record
+  abstract: true
+  fields:
+    - name: default
+      type: Any?
+      jsonldPredicate:
+        _id: sld:default
+        noLinkCheck: true
+      doc: |
+        The default value to use for this parameter if the parameter is missing
+        from the input object, or if the value of the parameter in the input
+        object is `null`.  Default values are applied before evaluating expressions
+        (e.g. dependent `valueFrom` fields).
 
 - name: Identified
   type: record
@@ -608,7 +622,7 @@ $graph:
 
 - name: InputRecordField
   type: record
-  extends: [sld:RecordField, FieldBase, InputFormat, LoadContents]
+  extends: [sld:RecordField, FieldBase, InputFormat, LoadContents, Defaultable]
   specialize:
     - specializeFrom: "sld:RecordSchema"
       specializeTo: InputRecordSchema
@@ -694,19 +708,7 @@ $graph:
 - name: InputParameter
   type: record
   abstract: true
-  extends: [Parameter, InputFormat, LoadContents]
-  fields:
-    - name: default
-      type: Any?
-      jsonldPredicate:
-        _id: sld:default
-        noLinkCheck: true
-      doc: |
-        The default value to use for this parameter if the parameter is missing
-        from the input object, or if the value of the parameter in the input
-        object is `null`.  Default values are applied before evaluating expressions
-        (e.g. dependent `valueFrom` fields).
-
+  extends: [Parameter, InputFormat, LoadContents, Defaultable]
 
 - name: OutputParameter
   type: record
