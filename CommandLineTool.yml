@@ -68,6 +68,7 @@ $graph:
         * Clarify semantics of `shellQuote`
         * Expressions are now allowed to evaluate to `null` or `Dirent` in
           [InitialWorkDirRequirement.listing](#InitialWorkDirRequirement).
+        * Clarify behavior of secondaryFiles on output
 
       See also the [CWL Workflow Description, v1.1.0-dev1 changelog](Workflow.html#Changelog).
 
