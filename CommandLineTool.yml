@@ -657,7 +657,7 @@ $graph:
   doc: |
     Indicates that a workflow component should be run in a
     [Docker](http://docker.com) or Docker-compatible (such as
-    [Singularity](https://www.sylabs.io/)) container environment and
+    [Singularity](https://www.sylabs.io/) and [udocker](https://github.com/indigo-dc/udocker)) container environment and
     specifies how to fetch or build the image.
 
     If a CommandLineTool lists `DockerRequirement` under
