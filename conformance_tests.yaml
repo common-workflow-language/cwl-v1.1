@@ -1734,6 +1734,15 @@
   tags: [ required ]
 
 - job: tests/empty.json
+  output: {
+    "contains_b": false
+  }
+  tool: tests/wf-loadContents5.cwl
+  label: loadcontents_maxsize
+  doc: Test loadContents maximum size.
+  tags: [ workflow, step_input, inline_javascript, expression_tool ]
+
+- job: tests/empty.json
   should_fail: true
   tool: tests/timelimit.cwl
   doc: Test that job fails when exceeding time limit
