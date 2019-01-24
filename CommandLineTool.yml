@@ -692,10 +692,9 @@ $graph:
 
     Use of implicit ENTRYPOINT or CMD are discouraged due to reproducibility
     concerns of the implicit hidden execution point (For further discussion, see 
-    [https://doi.org/10.12688/f1000research.15140.1](https://doi.org/10.12688/f1000research.15140.1)).  
-    Portable CommandLineTool wrappers in which use of 
-    a container is optional must not rely on ENTRYPOINT or CMD.  CommandLineTools which do
-    rely on ENTRYPOINT or CMD must list `DockerRequirement` in the
+    [https://doi.org/10.12688/f1000research.15140.1](https://doi.org/10.12688/f1000research.15140.1)). Portable 
+    CommandLineTool wrappers in which use of a container is optional must not rely on ENTRYPOINT or CMD.  
+    CommandLineTools which do rely on ENTRYPOINT or CMD must list `DockerRequirement` in the
     `requirements` section.
 
     ## Interaction with other requirements
