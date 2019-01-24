@@ -469,7 +469,7 @@ $graph:
         Provides a pattern or expression specifying files or directories that
         must be included alongside the primary file. An implementation must append 
         these files/directories to the `secondaryFiles` property of the primary file.
-        These files/dircetories must be transferred alongside the primary file.
+        These files/directories must be transferred alongside the primary file.
         An implementation may fail workflow execution if an expected secondary file
         does not exist.
 
