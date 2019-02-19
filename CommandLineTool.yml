@@ -89,7 +89,7 @@ $graph:
           `InputBinding` is deprecated; it is preserved for v1.0 backwards
            compatability and will be removed in CWL v2.0.
         * [Added](#ToolTimeLimit) `ToolTimeLimit` feature, allowing to set an upper limit on the
-          execution time of a CommandLineTool or ExpressionTool.
+          execution time of a CommandLineTool.
         * [Added](#WorkReuse) `WorkReuse` feature, allowing to enable or disable the reuse
           behavior for a particular tool or step for implementations that
           support reusing output from past work.
@@ -1101,8 +1101,8 @@ $graph:
   name: ToolTimeLimit
   extends: ProcessRequirement
   doc: |
-    Set an upper limit on the execution time of a CommandLineTool or
-    ExpressionTool.  A tool execution which exceeds the time limit may
+    Set an upper limit on the execution time of a CommandLineTool.  
+    A tool execution which exceeds the time limit may
     be preemptively terminated and considered failed.  May also be
     used by batch systems to make scheduling decisions.  
 
@@ -1112,7 +1112,7 @@ $graph:
     
     If ToolTimeLimit is set on a workflow level, it propagates down to
     individual processes, in line with requirement inheritance rules. 
-    ToolTimeLimit is not used to limit the execution time of a workflow.
+    ToolTimeLimit is not used to limit the execution time of a Workflow.
   fields:
     - name: class
       type: string
