@@ -88,7 +88,7 @@ $graph:
         * Added `InputParameter.loadContents` field. Use of `loadContents` in
           `InputBinding` is deprecated; it is preserved for v1.0 backwards
            compatability and will be removed in CWL v2.0.
-        * [Added](#TimeLimit) `TimeLimit` feature, allowing to set an upper limit on the
+        * [Added](#ToolTimeLimit) `ToolTimeLimit` feature, allowing to set an upper limit on the
           execution time of a CommandLineTool or ExpressionTool.
         * [Added](#WorkReuse) `WorkReuse` feature, allowing to enable or disable the reuse
           behavior for a particular tool or step for implementations that
@@ -1098,18 +1098,25 @@ $graph:
 
 
 - type: record
-  name: TimeLimit
+  name: ToolTimeLimit
   extends: ProcessRequirement
   doc: |
-    Set an upper limit on the execution time of a process
-    (e.g. a CommandLineTool or a Workflow).  A process whose
-    execution duration exceeds the time limit may be
-    preemptively terminated and considered failed.  May also be
-    used by batch systems to make scheduling decisions.
+    Set an upper limit on the execution time of a CommandLineTool or
+    ExpressionTool.  A tool execution which exceeds the time limit may
+    be preemptively terminated and considered failed.  May also be
+    used by batch systems to make scheduling decisions.  
+
+    Limit applies only to the command execution time. Time for 
+    additional steps, such as file download/upload, docker pull or 
+    expression evaluation is not considered for exceeding time limit.
+    
+    If ToolTimeLimit is set on a workflow level, it propagates down to
+    individual processes, in line with requirement inheritance rules. 
+    ToolTimeLimit is not used to limit the execution time of a workflow.
   fields:
     - name: class
       type: string
-      doc: "Always 'TimeLimit'"
+      doc: "Always 'ToolTimeLimit'"
       jsonldPredicate:
         "_id": "@type"
         "_type": "@vocab"
