@@ -3258,3 +3258,24 @@
     hash-prefixed "main"
   tags: [ required, command_line_tool ]
 
+- job: tests/itemseparator-job1.yml
+  output:
+    o:
+      class: File
+      checksum: sha1$1f44fbdb98150d4ba212e7b2cdec6c9bda27f6ef
+      size: 8
+  tool: tests/itemseparator1.cwl
+  label: itemseparator_multiple_items
+  doc: Test itemSeparator with multiple inputs in array input.
+  tags: [ required, command_line_tool ]
+
+- job: tests/itemseparator-job2.yml
+  output:
+    o:
+      class: File
+      checksum: sha1$90ce62edf2fe4940e041a68b13e7b5f9d02bbf51
+      size: 4
+  tool: tests/itemseparator1.cwl
+  label: itemseparator_single_item
+  doc: Test itemSeparator with single input in array input.
+  tags: [ required, command_line_tool ]
