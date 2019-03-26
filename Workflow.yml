@@ -1,3 +1,4 @@
+saladVersion: v1.1
 $base: "https://w3id.org/cwl/cwl#"
 
 $namespaces:
@@ -87,6 +88,15 @@ $graph:
         * [Added](#LoadListingRequirement) `LoadListingRequirement`
           and [loadListing](#LoadContents) to control whether and how
           `Directory` listings should be loaded for use in expressions.
+        * [Better explain](#map) the `map<…>` notation that has existed since v1.0.
+        * Fixed schema error where the `type` field inside the `inputs` and
+          `outputs` fields for both `Workflow` and `ExpressionTool` was
+           incorrectly listed as optional.
+        * For multi-Process CWL documents, if no particular process is named then
+          the process with the `id` of `#main` is chosen.
+        * [Made explicit](#Generic_execution_process) that the `$namespaces` of
+          the top level CWL document are also available to the input object as
+          well.
         * Fields with type "Expression" no longer include "string" in
           the type union unless a string is semantically valid.  Where
           a bare string is not semantically valid, these fields must
@@ -115,7 +125,6 @@ $graph:
   fields:
     - name: type
       type:
-        - "null"
         - CWLType
         - OutputRecordSchema
         - OutputEnumSchema
@@ -144,7 +153,6 @@ $graph:
   fields:
     - name: type
       type:
-        - "null"
         - CWLType
         - InputRecordSchema
         - InputEnumSchema
@@ -240,7 +248,6 @@ $graph:
         If not specified, the default method is "merge_nested".
     - name: type
       type:
-        - "null"
         - CWLType
         - OutputRecordSchema
         - OutputEnumSchema

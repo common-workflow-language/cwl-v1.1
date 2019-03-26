@@ -1,3 +1,4 @@
+saladVersion: v1.1
 $base: "https://w3id.org/cwl/cwl#"
 
 $namespaces:
@@ -102,6 +103,17 @@ $graph:
           `Directory` listings should be loaded for use in expressions.
         * The position field of the [CommandLineBinding](#CommandLineBinding) can
           now be calculated from a CWL Expression.
+        * The exit code of a CommandLineTool invocation is now
+          available to expressions in `outputEval` as `runtime.exitCode`
+        * [Better explain](#map) the `map<…>` notation that has existed since v1.0.
+        * Fixed schema error where the `type` field inside the `inputs` and
+          `outputs` field was incorrectly listed as optional.
+        * For multi-Process CWL documents, if no particular process is named then
+          the process with the `id` of `#main` is chosen.
+        * Added explicit defaults for [ResourceRequirement](#ResourceRequirement)s.
+        * [Made explicit](#Generic_execution_process) that the `$namespaces` of
+          the top level CWL document are also available to the input object as
+          well.
         * Fields with type "Expression" no longer include "string" in
           the type union unless a string is semantically valid.  Where
           a bare string is not semantically valid, these fields must
@@ -327,13 +339,15 @@ $graph:
     - name: outputEval
       type: Expression?
       doc: |
-        Evaluate an expression to generate the output value.  If `glob` was
-        specified, the value of `self` must be an array containing file objects
-        that were matched.  If no files were matched, `self` must be a zero
-        length array; if a single file was matched, the value of `self` is an
-        array of a single element.  Additionally, if `loadContents` is `true`,
-        the File objects must include up to the first 64 KiB of file contents
-        in the `contents` field.
+        Evaluate an expression to generate the output value.  If
+        `glob` was specified, the value of `self` must be an array
+        containing file objects that were matched.  If no files were
+        matched, `self` must be a zero length array; if a single file
+        was matched, the value of `self` is an array of a single
+        element.  Additionally, if `loadContents` is `true`, the File
+        objects must include up to the first 64 KiB of file contents
+        in the `contents` field.  The exit code of the process is
+        available in the expression as `runtime.exitCode`.
 
 - name: CommandLineBindable
   type: record
@@ -447,7 +461,6 @@ $graph:
   fields:
     - name: type
       type:
-        - "null"
         - CWLType
         - stdin
         - CommandInputRecordSchema
@@ -482,7 +495,6 @@ $graph:
   fields:
     - name: type
       type:
-        - "null"
         - CWLType
         - stdout
         - stderr
@@ -1064,7 +1076,7 @@ $graph:
 
     It is an error if the value of any of these fields is negative.
 
-    If neither "min" nor "max" is specified for a resource, an implementation may provide a default.
+    If neither "min" nor "max" is specified for a resource, use the default values below.
 
   fields:
     - name: class
@@ -1075,7 +1087,7 @@ $graph:
         "_type": "@vocab"
     - name: coresMin
       type: ["null", long, Expression]
-      doc: Minimum reserved number of CPU cores
+      doc: Minimum reserved number of CPU cores (default is 1)
 
     - name: coresMax
       type: ["null", int, Expression]
@@ -1083,7 +1095,7 @@ $graph:
 
     - name: ramMin
       type: ["null", long, Expression]
-      doc: Minimum reserved RAM in mebibytes (2**20)
+      doc: Minimum reserved RAM in mebibytes (2**20) (default is 256)
 
     - name: ramMax
       type: ["null", long, Expression]
@@ -1091,7 +1103,7 @@ $graph:
 
     - name: tmpdirMin
       type: ["null", long, Expression]
-      doc: Minimum reserved filesystem based storage for the designated temporary directory, in mebibytes (2**20)
+      doc: Minimum reserved filesystem based storage for the designated temporary directory, in mebibytes (2**20) (default is 1024)
 
     - name: tmpdirMax
       type: ["null", long, Expression]
@@ -1099,7 +1111,7 @@ $graph:
 
     - name: outdirMin
       type: ["null", long, Expression]
-      doc: Minimum reserved filesystem based storage for the designated output directory, in mebibytes (2**20)
+      doc: Minimum reserved filesystem based storage for the designated output directory, in mebibytes (2**20) (default is 1024)
 
     - name: outdirMax
       type: ["null", long, Expression]
