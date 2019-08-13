@@ -3313,3 +3313,13 @@
     Test that optional number output is returned as 0, not null
   tags: [ required, inline_javascript, command_line_tool ]
   id: 253
+
+- tool: tests/arg-empty-prefix-separate-false.cwl
+  job: tests/empty.json
+  output: {}
+  label: argument_empty_prefix_separate_false
+  doc: |
+    Test that argument with empty string as prefix and separate 
+    false is not omitted from command line
+  tags: [ required, shell_command, command_line_tool ]
+  id: 254
