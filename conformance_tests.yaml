@@ -3316,7 +3316,12 @@
 
 - tool: tests/arg-empty-prefix-separate-false.cwl
   job: tests/empty.json
-  output: {}
+  output:
+    "out": {
+        "class": "File",
+        "checksum": "sha1$e1511352b3bd8c37082021bdc5c50ec8e0e3e8db",
+        "size": 17
+    }
   label: argument_empty_prefix_separate_false
   doc: |
     Test that argument with empty string as prefix and separate 

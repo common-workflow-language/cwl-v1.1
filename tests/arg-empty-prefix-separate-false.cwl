@@ -2,7 +2,11 @@ class: CommandLineTool
 cwlVersion: v1.1
 baseCommand: []
 inputs: []
-outputs: []
+outputs: 
+  out:
+    type: File
+    outputBinding:
+      glob: out
 arguments:
 - position: 1
   shellQuote: false
@@ -12,5 +16,6 @@ arguments:
   separate: false
   shellQuote: false
   valueFrom: "echo"
+stdout: out
 requirements:
 - class: ShellCommandRequirement
