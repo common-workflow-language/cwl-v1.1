@@ -2883,6 +2883,7 @@
 - job: tests/stage-array-job.json
   tool: tests/stage-array.cwl
   doc: Test null and array input in InitialWorkDirRequirement
+  label: stage_null_array
   output:
       "output": {
         "basename": "lsout",
@@ -2897,6 +2898,7 @@
 - job: tests/stage-array-dirs-job.yml
   tool: tests/stage-array-dirs.cwl
   doc: Test array of directories InitialWorkDirRequirement
+  label: stage_array_dirs
   output: {
     "output": [
             {
@@ -2970,6 +2972,7 @@
       "size": 12010
   tool: tests/initialworkdir-glob-fullpath.cwl
   doc: Test output of InitialWorkDir
+  label: initial_work_dir_output
   tags: [ initial_work_dir ]
   id: 230
 
@@ -2988,6 +2991,7 @@
       "size": 12010
   tool: tests/initialworkdir-glob-fullpath.cwl
   doc: Test if full paths are allowed in glob
+  label: glob_full_path
   tags: [ initial_work_dir ]
   id: 231
 
@@ -2995,12 +2999,14 @@
   should_fail: true
   tool: tests/glob-path-error.cwl
   doc: Test fail trying to glob outside output directory
+  label: fail_glob_outside_output_dir
   tags: [ required ]
   id: 232
 
 - job: tests/empty.json
   tool: tests/symlink-illegal.cwl
   doc: symlink to file outside of working directory should NOT be retrieved
+  label: symlink_to_file_out_of_workdir_illegal
   output:
     output_file:
       "class": "File"
@@ -3013,6 +3019,7 @@
 - job: tests/empty.json
   tool: tests/symlink-legal.cwl
   doc: symlink to file inside of working directory should be retrieved
+  label: symlink-to-file-in-workdir-legal
   output:
     output_file:
       "class": "File"
@@ -3024,6 +3031,7 @@
 - job: tests/empty.json
   tool: tests/inp_update_wf.cwl
   doc: inplace update has side effect on file content
+  label: inplace_update_on_file_content
   tags: [ inplace_update ]
   output:
     a: 4
@@ -3033,6 +3041,7 @@
 - job: tests/empty.json
   tool: tests/inpdir_update_wf.cwl
   doc: inplace update has side effect on directory content
+  label: inplace_update_on_dir_content
   tags: [ inplace_update ]
   output: {
     a: [
@@ -3071,7 +3080,7 @@
   id: 237
 
 - doc: Test that array of input files can be staged to directory with entryname
-  label: stage_file_array
+  label: stage_file_array_to_dir
   tool: tests/stage_file_array.cwl
   job: tests/stage_file_array.job.json
   output:
@@ -3106,7 +3115,7 @@
   id: 238
 
 - doc: Test that array of input files can be staged to directory with basename
-  label: stage_file_array
+  label: stage_file_array_to_dir_basename
   tool: tests/stage_file_array_basename.cwl
   job: tests/stage_file_array.job.json
   output:
@@ -3141,7 +3150,7 @@
   id: 239
 
 - doc: Test that if array of input files are staged to directory with basename and entryname, entryname overrides
-  label: stage_file_array
+  label: stage_file_array_to_dir_basename_entryname
   tool: tests/stage_file_array_basename_and_entryname.cwl
   job: tests/stage_file_array.job.json
   output:
