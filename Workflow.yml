@@ -103,6 +103,9 @@ $graph:
           contain either a non-string value accepted by the field
           type, or a valid expression which returns a value having one
           of the the other types defined for that field.
+        * [WorkflowStepInput](WorkflowStepInput) now has a `loadContents` field.
+        * [WorkflowStepInput.id](WorkflowStepInput) field value does not have to match an
+          `input.id` value from the process specified in the `run` field.
 
       See also the [CWL Command Line Tool Description, v1.1 changelog](CommandLineTool.html#Changelog).
 
