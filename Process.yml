@@ -939,6 +939,11 @@ $graph:
         set to `false` and the expected secondary file does not exist.
         Default value for `required` field is `true` for secondary files on
         input and `false` for secondary files on output.
+  doc: |
+    Secondary files are specified using a mini DSL for secondary files. For 
+    implementation details and examples, please see 
+    [this section](SchemaSalad.html#Domain_Specific_Language_for_secondary_files) 
+    in the Schema Salad specification.
 
 - name: LoadListingRequirement
   type: record
