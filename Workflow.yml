@@ -106,6 +106,7 @@ $graph:
         * [WorkflowStepInput](WorkflowStepInput) now has a `loadContents` field.
         * [WorkflowStepInput.id](WorkflowStepInput) field value does not have to match an
           `input.id` value from the process specified in the `run` field.
+        * 2021-11-22 Errata: Fixed `$schema` typo. It is `$schemas` (plural).
 
       See also the [CWL Command Line Tool Description, v1.1 changelog](CommandLineTool.html#Changelog).
 

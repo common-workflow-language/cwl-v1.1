@@ -120,6 +120,7 @@ $graph:
           contain either a non-string value accepted by the field
           type, or a valid expression which returns a value having one
           of the the other types defined for that field.
+        * 2021-11-22 Errata: Fixed `$schema` typo. It is `$schemas` (plural).
 
       See also the [CWL Workflow Description, v1.1 changelog](Workflow.html#Changelog).
 
