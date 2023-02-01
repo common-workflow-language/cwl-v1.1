@@ -219,6 +219,7 @@ $graph:
   fields:
     - name: position
       type: [ "null", int, Expression ]
+      default: 0
       doc: |
         The sorting key.  Default position is 0. If the inputBinding is
         associated with an input parameter, then the value of `self` in the
