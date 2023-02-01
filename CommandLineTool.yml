@@ -1117,35 +1117,35 @@ $graph:
         "_id": "@type"
         "_type": "@vocab"
     - name: coresMin
-      type: ["null", long, Expression]
+      type: ["null", int, long, Expression]
       doc: Minimum reserved number of CPU cores (default is 1)
 
     - name: coresMax
-      type: ["null", int, Expression]
+      type: ["null", int, long, Expression]
       doc: Maximum reserved number of CPU cores
 
     - name: ramMin
-      type: ["null", long, Expression]
+      type: ["null", int, long, Expression]
       doc: Minimum reserved RAM in mebibytes (2**20) (default is 256)
 
     - name: ramMax
-      type: ["null", long, Expression]
+      type: ["null", int, long, Expression]
       doc: Maximum reserved RAM in mebibytes (2**20)
 
     - name: tmpdirMin
-      type: ["null", long, Expression]
+      type: ["null", int, long, Expression]
       doc: Minimum reserved filesystem based storage for the designated temporary directory, in mebibytes (2**20) (default is 1024)
 
     - name: tmpdirMax
-      type: ["null", long, Expression]
+      type: ["null", int, long, Expression]
       doc: Maximum reserved filesystem based storage for the designated temporary directory, in mebibytes (2**20)
 
     - name: outdirMin
-      type: ["null", long, Expression]
+      type: ["null", int, long, Expression]
       doc: Minimum reserved filesystem based storage for the designated output directory, in mebibytes (2**20) (default is 1024)
 
     - name: outdirMax
-      type: ["null", long, Expression]
+      type: ["null", int, long, Expression]
       doc: Maximum reserved filesystem based storage for the designated output directory, in mebibytes (2**20)
 
 
@@ -1284,7 +1284,7 @@ $graph:
         "_id": "@type"
         "_type": "@vocab"
     - name: timelimit
-      type: [long, Expression]
+      type: [int, long, Expression]
       doc: |
         The time limit, in seconds.  A time limit of zero means no
         time limit.  Negative time limits are an error.
