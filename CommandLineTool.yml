@@ -352,6 +352,7 @@ $graph:
 
 - name: CommandLineBindable
   type: record
+  abstract: true
   fields:
     inputBinding:
       type: CommandLineBinding?
